@@ -1,0 +1,32 @@
+name: Hello World Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Print Hello World
+        run: echo 'Hello from GitHub Actions!'
+
+      - name: Show Current User
+        run: whoami
+
+      - name: Show Current Directory
+        run: pwd
+
+      - name: List Files
+        run: ls -la
+
+      - name: Show System Info
+        run: |
+          echo '--- System Information ---'
+          uname -a
+          df -h
+          date
